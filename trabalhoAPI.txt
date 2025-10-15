@@ -1,0 +1,92 @@
+ENTREGAR
+definicao do escopo - feito
+definicao dos endpoints - depende da applicação, não pode ser poucos
+prototipo diagrama do banco de dados
+
+
+eventos
+noticias,
+sobre,
+vagas de emprego
+horarios
+
+
+LOCAIS:
+	BLOCO 1 - SETORES:
+		Exame de imagem,
+		Radio terapia,
+		Farmacia;
+		Ambulatorio de quimioterapia
+		Operador de caixa laboratorio,
+
+	BLOCO 2 - SETORES:
+		Pesquisa e desenvolvimento,
+		Ti,
+		Administração,
+		Coontabilidade
+		Cirugia,
+		Cantina,
+		Internacao de quimio,
+		TMO - Transplante de medula ossea,
+		Internacao
+		Quartos,
+		Robotica
+		Operador de Caixa
+
+	BLOCO 3 - SETORES:
+		AUTORIZACAO DE CONVENIO
+		LABORATORIO PARTICULAR
+		CONSULTA MEDICOS PARTICULAR
+		CEEC - ESTUDOS
+		PROCESSO SELETIVO
+	BLOCO 4 - SETORES:
+
+
+GET localizacao?exame=
+
+
+GET localizacao?setor=Laboratorio
+
+POST /setores
+	body:
+		existe: boolean,
+		exames: Array<String>,
+		horarios: Array<Data>:
+		coordenada: string,
+
+		referencias = [
+			fotos/nomes de coisas
+		],
+
+
+PATCH /setores
+	body:
+		existe: boolean,
+		exames: Array<String>,
+		horarios: Array<Data>:
+		coordenada: string,
+
+		referencias = [
+			fotos/nomes de coisas
+		],
+
+
+DELETE /setores/:id
+
+
+
+Setor {
+    "nome": string,
+    "bloco": string,
+    "andar": string
+},
+
+LocalizacaoResponse
+{
+  "existe": boolean,
+  "exame"?: string,
+  "setor"?: Setor,
+  "horarios"?: Array<String>,
+  "coordenada"?: string,
+  "referencias"?: Array<string>,
+}
