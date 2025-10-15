@@ -5,7 +5,6 @@ EndPoint Para A Localização
         GET localizacao?bloco=[nome do bloco]
         GET localizacao?vaga=[vaga id || vaga nome]
         GET localizacao?noticia=[noticia id || noticia nome]
-
     --- ADMIN
 
     POST /setores
@@ -19,6 +18,7 @@ EndPoint Para A Localização
             exame?: string,
             setor?: string,
             bloco?: string,
+            andar: string;
             coordenada?: string,
             referencias?: Object<Array<string>>,
         }
@@ -58,9 +58,12 @@ EndPoint Para Os Eventos
         data_fim: string;
         status: "futuro" | "em_andamento" | "encerrado";
         local: {
-            nome: string;
-            bloco: string;
-            andar: string;
+          nome: string;
+          bloco: string;
+          setor: string;
+          andar: string;
+          coordenada?: string;
+          referencias?: Object<Array<string>> - [links para imagens], [textos para referencias, descrições];
         };
         coordenada: string;
         referencias: string[];
@@ -88,6 +91,14 @@ EndPoint Para As Noticias
             resumo: string;
             conteudo: string;
             data_publicacao: string;
+            local?: {
+                nome: string;
+                bloco: string;
+                setor: string;
+                andar: string;
+                coordenada?: string;
+                referencias?: Object<Array<string>> - [links para imagens], [textos para referencias, descrições];
+            };
             imagens?: string[];
             tags?: string[];
         }
@@ -131,5 +142,13 @@ EndPoint Para Vagas de emprego
         data_encerramento?: string;
         status: "ativa" | "encerrada";
         como_se_inscrever: string;
-        contrato: string; - "CLT, ESTAGIO, etc.."
+        contrato: string; - "CLT, ESTAGIO, etc..";
+        local: {
+          nome: string;
+          bloco: string;
+          setor: string;
+          andar: string;
+          coordenada?: string;
+          referencias?: Object<Array<string>> - [links para imagens], [textos para referencias, descrições];
+        };
     }
